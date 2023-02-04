@@ -1,0 +1,131 @@
+body {
+  font-family: sans-serif;
+  background: linear-gradient(#e6e6e6, #fafafa);
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/062/462/original/93079859_cd096b278c.jpg?1673535077);
+  background-size: cover;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: #fff;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  color: #fff;
+}
+
+h3 {
+  font-family: "PT Mono", monospace;
+  font-size: 18px;
+  color: #fff;
+}
+
+h4 {
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+h6 {
+  text-align: center;
+  color: #fff;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 30px 60px;
+  border-radius: 4px;
+  /* background: linear-gradient(#0a93f3, #a6dcef); */
+  box-shadow: 0px 0px 15px 5px rgb(0 0 0 / 20%);
+  backdrop-filter: blur(5px);
+}
+
+.logo {
+  margin-top: 20px;
+  left: 0;
+  width: 250px;
+}
+
+.currentTemp {
+  font-family: "Roboto", sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.currentEmoji {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.units {
+  position: relative;
+  top: -12px;
+}
+
+#celsius-link {
+  color: #fff;
+}
+
+#fahrenheit-link {
+  color: #fff;
+}
+
+.showDate {
+  color: #fff;
+  font-size: 19px;
+}
+
+.selectedCity {
+  font-family: "Roboto", sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.showHumidity {
+  color: #fff;
+  font-size: 19px;
+}
+
+.showWind {
+  color: #fff;
+  font-size: 19px;
+}
+
+.row {
+  margin-top: 25px;
+}
+
+.col-4.city {
+  top: 0;
+  margin-top: 0;
+}
+
+.col-8.current-temp {
+  left: 0;
+  margin-top: 60px;
+}
+
+.mb-3 {
+  margin: 30px 0;
+}
+
+.days {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 50px;
+  line-height: 2.5;
+}
