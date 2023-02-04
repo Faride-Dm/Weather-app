@@ -50,3 +50,32 @@ function formatDate(date) {
 let now = new Date();
 let dayOfTheWeek = document.querySelector("#date");
 dayOfTheWeek.innerHTML = formatDate(now);
+
+// Weather of the Selected City
+function chooseCity(event) {
+  event.preventDefault();
+  let city = document.querySelector("#selected-city");
+  let chosenCity = document.querySelector("#data-list");
+  city.innerHTML = chosenCity.value;
+
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function showTemperature(response) {
+  let temperature = Math.round(response.data.main.temp);
+  let temp = document.querySelector("#current-temp");
+  let humidity = response.data.main.humidity;
+  let humid = document.querySelector("#humidity");
+  let wind = response.data.wind.speed;
+  let windy = document.querySelector("#wind");
+  temp.innerHTML = temperature;
+  humid.innerHTML = `Humidity ${humidity},  `;
+  windy.innerHTML = `Wind ${wind}`;
+}
+
+let searchCity = document.querySelector("#choose-city");
+searchCity.addEventListener("submit", chooseCity);
