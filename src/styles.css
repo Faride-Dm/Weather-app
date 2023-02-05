@@ -37,6 +37,10 @@ h6 {
   color: #fff;
 }
 
+a {
+  color: #fff;
+}
+
 .container {
   max-width: 1000px;
   margin: 50px auto;
@@ -128,4 +132,10 @@ h6 {
   text-align: center;
   margin-top: 50px;
   line-height: 2.5;
+}
+
+.github {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
