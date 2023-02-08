@@ -82,6 +82,10 @@ a {
   color: #fff;
 }
 
+#current-location {
+  color: rgba(39, 33, 66, 0.4);
+}
+
 .showDate {
   color: #fff;
   font-size: 19px;
