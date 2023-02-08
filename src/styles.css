@@ -46,7 +46,6 @@ a {
   margin: 50px auto;
   padding: 30px 60px;
   border-radius: 4px;
-  /* background: linear-gradient(#0a93f3, #a6dcef); */
   box-shadow: 0px 0px 15px 5px rgb(0 0 0 / 20%);
   backdrop-filter: blur(5px);
 }
@@ -87,8 +86,9 @@ a {
 }
 
 .showDate {
+  text-align: left;
   color: #fff;
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .selectedCity {
@@ -99,17 +99,19 @@ a {
 }
 
 .showHumidity {
+  text-align: left;
   color: #fff;
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .showWind {
+  text-align: left;
   color: #fff;
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .row {
-  margin-top: 25px;
+  margin-bottom: 30px;
 }
 
 .col-4.city {
@@ -136,10 +138,13 @@ a {
   text-align: center;
   margin-top: 50px;
   line-height: 2.5;
+  color: #fff;
 }
 
-.github {
-  text-align: center;
-  display: block;
-  margin: 0 auto;
+.githubLink {
+  color: #ce6748;
+}
+
+.netlifyLink {
+  color: #ce6748;
 }
