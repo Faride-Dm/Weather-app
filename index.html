@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather app</title>
 
-    <link rel="stylesheet" href="./src/styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,6 +13,8 @@
       crossorigin="anonymous"
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="./src/styles.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,57 +28,65 @@
     <div class="container">
       <img class="logo" src="./images/logo-shecodes.png" />
       <div class="row">
-        <div class="col-8 current-temp">          
-            <span class="currentEmoji">🌨<br /></span>
-						<span class="currentTemp" id="current-temp">-2</span>
-						<span class="units">
-                  <a href="#" id="celsius-link">°C</a> |
-                  <a href="#" id="fahrenheit-link">°F</a>
-            </span>          
+        <div class="col-8 current-temp">
+          <span class="currentEmoji">🌨<br /></span>
+          <span class="currentTemp" id="current-temp">-2</span>
+          <span class="units">
+            <a href="#" id="celsius-link">°C</a> |
+            <a href="#" id="fahrenheit-link">°F</a>
+          </span>
         </div>
         <div class="col-4 city">
-          <div >
-            <button id="current-location">
-              Where you are 
-            </button>
+          <div>
+            <button id="current-location">Where you are</button>
           </div>
-          <span class="selectedCity" id=selected-city> <h1>Tehran</h1> </span>
-          <span class="showDate" id="date"><h3>Wednesday 11:22 <br /> 11 Jan 2023 </h3> </span>
+          <span class="selectedCity" id="selected-city"> <h1>Tehran</h1> </span>
+          <span class="showDate" id="date"
+            ><h3>
+              Wednesday 11:22 <br />
+              11 Jan 2023
+            </h3>
+          </span>
           <span class="showHumidity" id="humidity"><h3>Humidity</h3></span>
           <span class="showWind" id="wind"><h3>Wind</h3></span>
         </div>
       </div>
 
-<form id="choose-city">
-      <div class="row">
-        <div class="col-6">				
-					<input class="form-control" list="datalistOptions" id="data-list" placeholder="Type a city to search...">
-					<datalist id="datalistOptions">
-					<option value="Paris">
-					<option value="Tokyo">
-						<option value="San Francisco">
-						<option value="New York">
-						<option value="Tehran">
-						<option value="Los Angeles">
-						<option value="Chicago">
-					</datalist>          
-        </div>
-</form>		
-        <div class="col-6">
-          <div class="input-group">
+      <form id="choose-city">
+        <div class="row">
+          <div class="col-6">
             <input
-              type="date"
               class="form-control"
-              id="inputGroupFile04"
-              aria-describedby="inputGroupFileAddon04"
-              aria-label="Upload"
+              list="datalistOptions"
+              id="data-list"
+              placeholder="Type a city to search..."
             />
+            <datalist id="datalistOptions">
+              <option value="Paris"></option>
+              <option value="Tokyo"></option>
+              <option value="San Francisco"></option>
+              <option value="New York"></option>
+              <option value="Tehran"></option>
+              <option value="Los Angeles"></option>
+              <option value="Chicago"></option>
+            </datalist>
+          </div>
+
+          <div class="col-6">
+            <div class="input-group">
+              <input
+                type="date"
+                class="form-control"
+                id="inputGroupFile04"
+                aria-describedby="inputGroupFileAddon04"
+                aria-label="Upload"
+              />
+            </div>
           </div>
         </div>
-      </div>
-				
+      </form>
 
-            <div class="row days">
+      <div class="row days">
         <div class="col-2 day2">
           <h4>Tomorrow</h4>
           <h2>🌦</h2>
