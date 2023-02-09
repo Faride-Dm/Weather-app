@@ -55,7 +55,7 @@ dayOfTheWeek.innerHTML = formatDate(now);
 function chooseCity(event) {
   event.preventDefault();
   let city = document.querySelector("#selected-city");
-  let chosenCity = document.querySelector("#data-list");
+  let chosenCity = document.querySelector(".search-input");
   city.innerHTML = chosenCity.value;
 
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
@@ -67,14 +67,16 @@ function chooseCity(event) {
 
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
-  let temp = document.querySelector("#current-temp");
   let humidity = response.data.main.humidity;
-  let humid = document.querySelector("#humidity");
   let wind = response.data.wind.speed;
+
+  let temp = document.querySelector("#current-temp");
+  let humid = document.querySelector("#humidity");
   let windy = document.querySelector("#wind");
+
   temp.innerHTML = temperature;
-  humid.innerHTML = `Humidity ${humidity},  `;
-  windy.innerHTML = `Wind ${wind}`;
+  humid.innerHTML = `Humidity: ${humidity}%,  `;
+  windy.innerHTML = `Wind: ${wind} Km/H`;
 }
 
 let searchCity = document.querySelector("#choose-city");
@@ -104,13 +106,17 @@ function showWeather(response) {
   city.innerHTML = `${cityName} <br />`;
   let humidity = response.data.main.humidity;
   let humid = document.querySelector("#humidity");
-  humid.innerHTML = `<br /> Humidity ${humidity},  `;
+  humid.innerHTML = `<br /> Humidity: ${humidity}%,  `;
   let wind = response.data.wind.speed;
   let windy = document.querySelector("#wind");
-  windy.innerHTML = `Wind ${wind}`;
+  windy.innerHTML = `Wind: ${wind} Km/H`;
   let description = response.data.weather[0].description;
   button.innerHTML = description;
 }
+
+window.watch("location", function (prop, oldval, newval) {
+  return oldval;
+});
 
 let button = document.querySelector("#current-location");
 button.addEventListener("click", location);
