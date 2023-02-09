@@ -44,7 +44,7 @@ function formatDate(date) {
 
   let dateInMonth = date.getDate();
   let year = date.getFullYear();
-  return `${weekDay} ${hours}:${minutes} <br /> ${dateInMonth} ${yearMonths} ${year}`;
+  return `${weekDay} ${hours}:${minutes} <br /> ${dateInMonth} ${yearMonths} ${year} <br />`;
 }
 
 let now = new Date();
@@ -60,22 +60,23 @@ function chooseCity(event) {
 
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity.value}&appid=${apiKey}&units=${units}`;
 
-  axios.get(apiUrl).then(showTemperature);
+  axios.get(apiUrl).then(showWeather);
 }
 
-function showTemperature(response) {
+function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
-  let humidity = response.data.main.humidity;
-  let wind = response.data.wind.speed;
-
   let temp = document.querySelector("#current-temp");
-  let humid = document.querySelector("#humidity");
-  let windy = document.querySelector("#wind");
-
   temp.innerHTML = temperature;
-  humid.innerHTML = `Humidity: ${humidity}%,  `;
+  let city = document.querySelector("#selected-city");
+  let cityName = response.data.name;
+  city.innerHTML = `${cityName} <br />`;
+  let humidity = response.data.main.humidity;
+  let humid = document.querySelector("#humidity");
+  humid.innerHTML = `<br /> Humidity: ${humidity}%,  `;
+  let wind = Math.round(response.data.wind.speed);
+  let windy = document.querySelector("#wind");
   windy.innerHTML = `Wind: ${wind} Km/H`;
 }
 
