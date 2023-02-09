@@ -38,7 +38,8 @@ h6 {
 }
 
 a {
-  color: #fff;
+  color: #ce6748;
+  font-weight: 900;
 }
 
 .container {
@@ -73,12 +74,20 @@ a {
   top: -12px;
 }
 
-#celsius-link {
+.units .active {
   color: #fff;
+
+  text-decoration: none;
+}
+
+#celsius-link {
+  text-decoration: none;
+  cursor: default;
 }
 
 #fahrenheit-link {
-  color: #fff;
+  text-decoration: none;
+  cursor: default;
 }
 
 #current-location {
