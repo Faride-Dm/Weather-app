@@ -54,10 +54,7 @@ dayOfTheWeek.innerHTML = formatDate(now);
 // Weather of the Selected City
 function chooseCity(event) {
   event.preventDefault();
-  let city = document.querySelector("#selected-city");
   let chosenCity = document.querySelector(".search-input");
-  city.innerHTML = chosenCity.value;
-
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity.value}&appid=${apiKey}&units=${units}`;
@@ -68,15 +65,18 @@ function chooseCity(event) {
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let temp = document.querySelector("#current-temp");
-  temp.innerHTML = temperature;
   let city = document.querySelector("#selected-city");
   let cityName = response.data.name;
-  city.innerHTML = `${cityName} <br />`;
   let humidity = response.data.main.humidity;
   let humid = document.querySelector("#humidity");
-  humid.innerHTML = `<br /> Humidity: ${humidity}%,  `;
   let wind = Math.round(response.data.wind.speed);
   let windy = document.querySelector("#wind");
+
+  celsiusTemperature = response.data.main.temp;
+
+  temp.innerHTML = temperature;
+  city.innerHTML = `${cityName} <br />`;
+  humid.innerHTML = `<br /> Humidity: ${humidity}%,  `;
   windy.innerHTML = `Wind: ${wind} Km/H`;
 }
 
@@ -87,14 +87,17 @@ searchCity.addEventListener("submit", chooseCity);
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temp");
-  temperatureElement.innerHTML = 66;
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temp");
-  temperatureElement.innerHTML = 19;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
+
+celsiusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
