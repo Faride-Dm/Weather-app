@@ -71,13 +71,17 @@ function showWeather(response) {
   let humid = document.querySelector("#humidity");
   let wind = Math.round(response.data.wind.speed);
   let windy = document.querySelector("#wind");
+  let feelsLike = document.querySelector("#feels-like");
 
   celsiusTemperature = response.data.main.temp;
 
   temp.innerHTML = temperature;
   city.innerHTML = `${cityName} <br />`;
   humid.innerHTML = `<br /> Humidity: ${humidity}%,  `;
-  windy.innerHTML = `Wind: ${wind} Km/H`;
+  windy.innerHTML = `Wind: ${wind} Km/H <br />`;
+  feelsLike.innerHTML = `It feels like ${Math.round(
+    response.data.main.feels_like
+  )}°C`;
 }
 
 let searchCity = document.querySelector("#choose-city");

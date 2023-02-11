@@ -40,6 +40,7 @@ h6 {
 a {
   color: #ce6748;
   font-weight: 900;
+  text-decoration: none;
 }
 
 .container {
@@ -55,6 +56,33 @@ a {
   margin-top: 20px;
   left: 0;
   width: 250px;
+}
+
+.switch {
+  position: relative;
+  float: inline-end;
+  width: 30px;
+  height: 17px;
+  right: 10px;
+  top: 50px;
+}
+
+input:checked + .slider {
+  background-color: #393e5c;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
 }
 
 .currentTemp {
@@ -114,6 +142,12 @@ a {
 }
 
 .showWind {
+  text-align: left;
+  color: #fff;
+  font-size: 16px;
+}
+
+.feelingTemperature {
   text-align: left;
   color: #fff;
   font-size: 16px;
