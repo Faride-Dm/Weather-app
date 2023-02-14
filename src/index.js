@@ -112,3 +112,26 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
+
+//dark mode toggle
+// let backgroundInputBox = document.getElementById("backgroundInputBox");
+
+// backgroundInputBox.addEventListener("change", () => {
+//   if (backgroundInputBox.checked) {
+//     document.body.style.backgroundImage =
+//       "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/067/711/original/Winter-darkmode.jpg?1676404694)";
+//   }
+// });
+
+// backgroundSlider.addEventListener("input", () => {
+//   document.body.style.backgroundImage =
+//     "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/062/462/original/93079859_cd096b278c.jpg?1673535077)";
+// });
+
+window.setTheFocus = function setTheFocus() {
+  toggleBackground();
+};
+function toggleBackground() {
+  let element = document.body;
+  element.classList.toggle("dark-mode");
+}
