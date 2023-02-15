@@ -77,7 +77,7 @@ a {
   width: 0;
   height: 0;
 }
-/* The slider */
+
 .slider {
   position: absolute;
   cursor: pointer;
@@ -90,7 +90,7 @@ a {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
-/* Before sliding */
+
 .slider:before {
   position: absolute;
   content: "";
@@ -204,9 +204,20 @@ input:checked + .slider:before {
   margin: 30px 0;
 }
 
-.days {
+.weather-forecast {
   text-align: center;
   margin-top: 40px;
+  color: #fff;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+  color: #fff;
+}
+
+.weather-forecast-date-min {
+  font-size: 13px;
+  opacity: 0.6;
 }
 
 .footer {
