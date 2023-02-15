@@ -51,6 +51,32 @@ let now = new Date();
 let dayOfTheWeek = document.querySelector("#date");
 dayOfTheWeek.innerHTML = formatDate(now);
 
+function displayForcast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col">
+        <div class="weather-forecast-date">${day}</div>
+        <h2>🌦</h2>
+        <div class="weather-forecast-temperature">
+          <span class="weather-forecast-temperature-max">6° </span>
+          <span class="weather-forecast-temperature-min">2° </span>
+        </div>
+      </div>
+      `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 // Weather of the Selected City
 function chooseCity(event) {
   event.preventDefault();
@@ -83,6 +109,8 @@ function showWeather(response) {
     response.data.main.feels_like
   )}°C`;
 }
+
+displayForcast();
 
 let searchCity = document.querySelector("#choose-city");
 searchCity.addEventListener("submit", chooseCity);
