@@ -78,14 +78,18 @@ function displayForcast() {
 }
 
 // Weather of the Selected City
+function search(city) {
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showWeather);
+}
+
 function chooseCity(event) {
   event.preventDefault();
   let chosenCity = document.querySelector(".search-input");
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity.value}&appid=${apiKey}&units=${units}`;
-
-  axios.get(apiUrl).then(showWeather);
+  search(chosenCity.value);
 }
 
 function showWeather(response) {
@@ -103,11 +107,11 @@ function showWeather(response) {
 
   temp.innerHTML = temperature;
   city.innerHTML = `${cityName} <br />`;
-  humid.innerHTML = `<br /> Humidity: ${humidity}%,  `;
-  windy.innerHTML = `Wind: ${wind} Km/H <br />`;
-  feelsLike.innerHTML = `It feels like ${Math.round(
+  humid.innerHTML = `<br /> Humidity: <strong id="humid-percent">${humidity}%</strong>,  `;
+  windy.innerHTML = `Wind: <strong id="speed">${wind} Km/H</strong> <br />`;
+  feelsLike.innerHTML = `It feels like <strong id="feel-temp">${Math.round(
     response.data.main.feels_like
-  )}°C`;
+  )}°C</strong>`;
 }
 
 displayForcast();
@@ -146,7 +150,10 @@ celsiusLink.addEventListener("click", convertToCelsius);
 window.setTheFocus = function setTheFocus() {
   toggleBackground();
 };
+
 function toggleBackground() {
   let element = document.body;
   element.classList.toggle("dark-mode");
 }
+
+search("Edinburgh");
