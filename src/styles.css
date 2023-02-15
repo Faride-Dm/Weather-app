@@ -9,6 +9,7 @@ h1 {
   font-family: "Roboto", sans-serif;
   font-size: 40px;
   font-weight: 900;
+  line-height: 24px;
   color: #fff;
 }
 
@@ -19,28 +20,33 @@ h2 {
   color: #fff;
 }
 
-h3 {
-  font-family: "PT Mono", monospace;
-  font-size: 18px;
-  color: #fff;
-}
-
-h4 {
-  text-align: center;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #fff;
-}
-
-h6 {
-  text-align: center;
-  color: #fff;
-}
-
 a {
   color: #ce6748;
   font-weight: 900;
   text-decoration: none;
+}
+
+@supports (background-clip: text) {
+  a {
+    background-image: linear-gradient(#e19f63, #d16a51);
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin-bottom: 5px;
 }
 
 .dark-mode {
@@ -60,7 +66,7 @@ a {
 .logo {
   margin-top: 20px;
   left: 0;
-  width: 250px;
+  width: 200px;
 }
 
 .switch {
@@ -151,11 +157,7 @@ input:checked + .slider:before {
   cursor: default;
 }
 
-#current-location {
-  color: rgba(39, 33, 66, 0.4);
-}
-
-.showDate {
+.ontime-city-temperature {
   text-align: left;
   color: #fff;
   font-size: 16px;
@@ -168,22 +170,27 @@ input:checked + .slider:before {
   color: #fff;
 }
 
-.showHumidity {
-  text-align: left;
-  color: #fff;
-  font-size: 16px;
-}
-
-.showWind {
-  text-align: left;
-  color: #fff;
-  font-size: 16px;
-}
-
+.showHumidity,
+.showWind,
 .feelingTemperature {
-  text-align: left;
-  color: #fff;
-  font-size: 16px;
+  opacity: 0.7;
+}
+
+#humid-percent,
+#speed,
+#feel-temp {
+  color: #ce6748;
+}
+
+@supports (background-clip: text) {
+  #humid-percent,
+  #speed,
+  #feel-temp {
+    background-image: linear-gradient(#e19f63, #d16a51);
+    opacity: 1;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 .row {
@@ -204,6 +211,10 @@ input:checked + .slider:before {
   margin: 30px 0;
 }
 
+#inputGroupFile04 {
+  color: #706c6c;
+}
+
 .weather-forecast {
   text-align: center;
   margin-top: 40px;
@@ -212,12 +223,16 @@ input:checked + .slider:before {
 
 .weather-forecast-date {
   font-size: 16px;
-  color: #fff;
+  opacity: 0.7;
 }
 
-.weather-forecast-date-min {
-  font-size: 13px;
-  opacity: 0.6;
+.weather-forecast-temperature-min {
+  font-size: 15px;
+}
+
+.weather-forecast-temperature-min {
+  font-size: 15px;
+  opacity: 0.7;
 }
 
 .footer {
@@ -234,4 +249,13 @@ input:checked + .slider:before {
 
 .netlifyLink {
   color: #ce6748;
+}
+
+@supports (background-clip: text) {
+  .githubLink,
+  .netlifyLink {
+    background-image: linear-gradient(#e19f63, #d16a51);
+    background-clip: text;
+    color: transparent;
+  }
 }

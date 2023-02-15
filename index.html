@@ -38,26 +38,40 @@
         </label>
       </div>
 
-      <div class="row">
-        <div class="col-8 current-temp">
-          <span class="currentEmoji">🌨<br /></span>
-          <span class="currentTemp" id="current-temp">-2</span>
-          <span class="units">
-            <a href="#" id="celsius-link" class="active">°C</a> |
-            <a href="#" id="fahrenheit-link">°F</a>
-          </span>
-        </div>
-        <div class="col-4 city">
-          <div class="selectedCity" id="selected-city">Tehran<br /></div>
-          <span class="showDate" id="date">
-            Wednesday 11:22 <br />
-            11 Jan 2023 <br />
-          </span>
-          <span class="showHumidity" id="humidity"><br />Humidity: 42%,</span>
-          <span class="showWind" id="wind">Wind: 3 Km/H<br /></span>
-          <span class="feelingTemperature" id="feels-like"
-            >It feels like 1°C</span
-          >
+      <div class="ontime-city-temperature">
+        <div class="row">
+          <div class="col-8 current-temp">
+            <span class="currentEmoji">🌨<br /></span>
+            <span class="currentTemp" id="current-temp">-2</span>
+            <span class="units">
+              <a href="#" id="celsius-link" class="active">°C</a> |
+              <a href="#" id="fahrenheit-link">°F</a>
+            </span>
+          </div>
+          <div class="col-4 city">
+            <div class="selectedCity" id="selected-city">Tehran<br /></div>
+            <ul>
+              <li>
+                <span class="showDate" id="date">
+                  Wednesday 11:22 <br />
+                  11 Jan 2023 <br />
+                </span>
+              </li>
+              <li>
+                <span class="showHumidity" id="humidity">
+                  <br />Humidity: <strong id="humid-percent">42%</strong>,
+                </span>
+                <span class="showWind" id="wind"
+                  >Wind: <strong id="speed">3 Km/H</strong><br
+                /></span>
+              </li>
+              <li>
+                <span class="feelingTemperature" id="feels-like">
+                  It feels like <strong id="feel-temp">1°C</strong>
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
