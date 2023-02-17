@@ -147,13 +147,10 @@ celsiusLink.addEventListener("click", convertToCelsius);
 
 //dark mode toggle
 
-window.setTheFocus = function setTheFocus() {
-  toggleBackground();
-};
+const checkbox = document.getElementById("checkbox");
 
-function toggleBackground() {
-  let element = document.body;
-  element.classList.toggle("dark-mode");
-}
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+});
 
 search("Edinburgh");

@@ -49,7 +49,7 @@ li {
   margin-bottom: 5px;
 }
 
-.dark-mode {
+body.dark {
   background: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/067/711/original/Winter-darkmode.jpg?1676404694);
   background-size: cover;
 }
@@ -69,59 +69,50 @@ li {
   width: 200px;
 }
 
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 22px;
-  right: 0px;
-  margin: 48px 5px auto auto;
-}
-/* Hiding the default checkbox*/
-.switch input {
+.checkbox {
   opacity: 0;
-  width: 0;
-  height: 0;
+  position: absolute;
 }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 30px;
+.label {
+  width: 27px;
+  height: 17px;
   background-color: #cccccc;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  left: 4px;
-  bottom: 3px;
+  display: flex;
   border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  margin: 50px 6px auto auto;
+  transform: scale(1.5);
+}
+
+.ball {
+  width: 12.5px;
+  height: 12.5px;
   background-color: #fff;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  -webkit-transition: 0.2s;
+  transition: transform 0.2s linear;
 }
 
-input:checked + .slider {
-  background-color: #ce6748;
+.checkbox:checked + .label .ball {
+  transform: translateX(11px);
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #332c1c;
+.fa-moon {
+  font-size: 8px;
+  color: rgb(165, 149, 161);
+  left: 0;
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(16px);
-  -ms-transform: translateX(16px);
-  transform: translateX(16px);
+.fa-sun {
+  font-size: 8px;
+  color: rgb(255, 255, 0);
 }
 
 .currentTemp {

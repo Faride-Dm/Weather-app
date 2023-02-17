@@ -22,19 +22,23 @@
       href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Permanent+Marker&family=Poppins:wght@900&family=Roboto:ital,wght@0,100;0,900;1,100;1,500&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
   </head>
 
   <body>
     <div class="container">
       <div class="d-flex darkModeToggle">
         <img class="logo" src="./images/logo-shecodes.png" />
-        <label class="switch">
-          <input
-            type="checkbox"
-            onclick="setTheFocus()"
-            id="backgroundInputBox"
-          />
-          <span class="slider round"></span>
+        <input type="checkbox" class="checkbox" id="checkbox" />
+        <label for="checkbox" class="label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="ball"></div>
         </label>
       </div>
 
