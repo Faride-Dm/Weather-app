@@ -76,7 +76,7 @@ body.dark {
 
 .label {
   width: 27px;
-  height: 17px;
+  height: 15px;
   background-color: #cccccc;
   display: flex;
   border-radius: 50px;
@@ -84,13 +84,13 @@ body.dark {
   justify-content: space-between;
   padding: 5px;
   position: relative;
-  margin: 50px 6px auto auto;
+  margin: 42px 10px auto auto;
   transform: scale(1.5);
 }
 
 .ball {
-  width: 12.5px;
-  height: 12.5px;
+  width: 11px;
+  height: 11px;
   background-color: #fff;
   position: absolute;
   top: 2px;
