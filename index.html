@@ -28,6 +28,10 @@
       integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
       crossorigin="anonymous"
     />
+    <script>
+      /*to prevent Firefox FOUC, this must be here*/
+      let FF_FOUC_FIX;
+    </script>
   </head>
 
   <body>
@@ -45,7 +49,7 @@
       <div class="ontime-city-temperature">
         <div class="row">
           <div class="col-8 current-temp">
-            <span class="currentEmoji">🌨<br /></span>
+            <img class="currentWeatherIcon" src="#" /><br />
             <span class="currentTemp" id="current-temp">-2</span>
             <span class="units">
               <a href="#" id="celsius-link" class="active">°C</a> |

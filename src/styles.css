@@ -122,9 +122,8 @@ body.dark {
   color: #fff;
 }
 
-.currentEmoji {
-  font-size: 35px;
-  font-weight: 700;
+.currentWeatherIcon {
+  margin-left: -15px;
 }
 
 .units {
