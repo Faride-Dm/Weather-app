@@ -165,7 +165,7 @@ let now = new Date();
 let dayOfTheWeek = document.querySelector("#date");
 dayOfTheWeek.innerHTML = formatDate(now);
 
-let searchCity = document.querySelector("#choose-city");
+let searchCity = document.querySelector("#input-city");
 searchCity.addEventListener("submit", chooseCity);
 
 celsiusTemperature = null;

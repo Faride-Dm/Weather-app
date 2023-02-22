@@ -168,14 +168,16 @@ body.dark {
 
 #humid-percent,
 #speed,
-#feel-temp {
+#feel-temp,
+#submit-btn {
   color: #ce6748;
 }
 
 @supports (background-clip: text) {
   #humid-percent,
   #speed,
-  #feel-temp {
+  #feel-temp,
+  #submit-btn {
     background-image: linear-gradient(#e19f63, #d16a51);
     opacity: 1;
     background-clip: text;
@@ -197,12 +199,27 @@ body.dark {
   margin-top: 60px;
 }
 
-.mb-3 {
-  margin: 30px 0;
+#input-city {
+  padding: 11px 9px;
+  background-color: transparent;
+  border-color: #ce6748;
+  border-width: 2px;
 }
 
-#inputGroupFile04 {
-  color: #706c6c;
+input#input-city::placeholder {
+  font-weight: 500;
+  color: #ce6748;
+}
+
+#submit-btn {
+  font-size: 16px;
+  text-align: center;
+  line-height: 15px;
+  font-weight: bold;
+  height: 50px;
+  padding: 15px 0;
+  border-color: #ce6748;
+  border-width: 2px;
 }
 
 .weather-forecast {
