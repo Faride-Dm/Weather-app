@@ -43,6 +43,7 @@ function formatDate(date) {
 
   let dateInMonth = date.getDate();
   let year = date.getFullYear();
+
   return `${weekDay} ${hours}:${minutes} <br /> ${dateInMonth} ${yearMonths} ${year} <br />`;
 }
 
@@ -64,14 +65,34 @@ function displayForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
-      forecastHTML += `
+      if (fahrenheitLink.classList.contains("active")) {
+        forecastHTML += `
       <div class="col">
         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
         <img class="iconElement" alt="${
           forecastDay.weather[0].description
         }" src="http://openweathermap.org/img/wn/${
-        forecastDay.weather[0].icon
-      }@2x.png" />
+          forecastDay.weather[0].icon
+        }@2x.png" />
+        <div class="weather-forecast-temperature">
+          <span class="weather-forecast-temperature-max">${Math.round(
+            (forecastDay.temp.max * 9) / 5 + 32
+          )}° </span>
+          <span class="weather-forecast-temperature-min">${Math.round(
+            (forecastDay.temp.min * 9) / 5 + 32
+          )}° </span>
+        </div>
+      </div>
+      `;
+      } else {
+        forecastHTML += `
+      <div class="col">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <img class="iconElement" alt="${
+          forecastDay.weather[0].description
+        }" src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png" />
         <div class="weather-forecast-temperature">
           <span class="weather-forecast-temperature-max">${Math.round(
             forecastDay.temp.max
@@ -82,6 +103,7 @@ function displayForecast(response) {
         </div>
       </div>
       `;
+      }
     }
   });
 
@@ -151,6 +173,14 @@ function convertToFahrenheit(event) {
   fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+  let lookForFahrenheitInForecast = document.querySelector("#input-city");
+  let city = lookForFahrenheitInForecast.value;
+  const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(search(city));
+    }, 300);
+  });
 }
 
 function convertToCelsius(event) {

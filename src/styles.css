@@ -2,6 +2,7 @@ body {
   font-family: sans-serif;
   background: linear-gradient(#e6e6e6, #fafafa);
   background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/067/790/original/winter.jpg?1676478322);
+  background-attachment: fixed;
   background-size: cover;
 }
 
