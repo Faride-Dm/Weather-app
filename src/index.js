@@ -64,34 +64,14 @@ function displayForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
-      if (fahrenheitLink.classList.contains("active")) {
-        forecastHTML += `
+      forecastHTML += `
       <div class="col">
         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
         <img class="iconElement" alt="${
           forecastDay.weather[0].description
         }" src="http://openweathermap.org/img/wn/${
-          forecastDay.weather[0].icon
-        }@2x.png" />
-        <div class="weather-forecast-temperature">
-          <span class="weather-forecast-temperature-max">${Math.round(
-            (forecastDay.temp.max * 9) / 5 + 32
-          )}° </span>
-          <span class="weather-forecast-temperature-min">${Math.round(
-            (forecastDay.temp.min * 9) / 5 + 32
-          )}° </span>
-        </div>
-      </div>
-      `;
-      } else {
-        forecastHTML += `
-      <div class="col">
-        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-        <img class="iconElement" alt="${
-          forecastDay.weather[0].description
-        }" src="http://openweathermap.org/img/wn/${
-          forecastDay.weather[0].icon
-        }@2x.png" />
+        forecastDay.weather[0].icon
+      }@2x.png" />
         <div class="weather-forecast-temperature">
           <span class="weather-forecast-temperature-max">${Math.round(
             forecastDay.temp.max
@@ -102,7 +82,6 @@ function displayForecast(response) {
         </div>
       </div>
       `;
-      }
     }
   });
 
@@ -110,14 +89,18 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-function getForecast(coordinates) {
+function getForecast(coordinates, prevUnits) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let units = "metric";
+  if (prevUnits) {
+    units = prevUnits;
+  }
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(displayForecast);
 }
 
+let coordinates = null;
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let temp = document.querySelector("#current-temp");
@@ -145,8 +128,8 @@ function showWeather(response) {
   );
 
   currentIcon.setAttribute("alt", response.data.weather[0].description);
-
-  getForecast(response.data.coord);
+  coordinates = response.data.coord;
+  getForecast(coordinates);
 }
 
 function search(city) {
@@ -171,14 +154,7 @@ function convertToFahrenheit(event) {
   fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-
-  let lookForFahrenheitInForecast = document.querySelector("#input-city");
-  let city = lookForFahrenheitInForecast.value;
-  const promise1 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(search(city));
-    }, 300);
-  });
+  getForecast(coordinates, "imperial");
 }
 
 function convertToCelsius(event) {
