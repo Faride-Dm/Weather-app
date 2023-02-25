@@ -44,6 +44,34 @@ function formatDate(date) {
   let dateInMonth = date.getDate();
   let year = date.getFullYear();
 
+  if (yearMonths == "April" || yearMonths == "May" || yearMonths == "June") {
+    document.getElementById("backGround").style.backgroundImage =
+      "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/069/047/original/spring.jpg?1677327335)";
+  } else if (
+    yearMonths == "July" ||
+    yearMonths == "August" ||
+    yearMonths == "September"
+  ) {
+    document.getElementById("backGround").style.backgroundImage =
+      "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/069/045/original/summer.jpg?1677327246)";
+  } else if (
+    yearMonths == "October" ||
+    yearMonths == "November" ||
+    yearMonths == "December"
+  ) {
+    document.getElementById("backGround").style.backgroundImage =
+      "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/069/046/original/autumn.jpg?1677327273)";
+  } else if (
+    (yearMonths == "December" && dateInMonth > 23) ||
+    (yearMonths == "January" && dateInMonth < 7)
+  ) {
+    document.getElementById("backGround").style.backgroundImage =
+      "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/069/054/original/Chrismas.jpg?1677330137)";
+  } else {
+    document.getElementById("backGround").style.backgroundImage =
+      "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/067/790/original/winter.jpg?1676478322)";
+  }
+
   return `${weekDay} ${hours}:${minutes} <br /> ${dateInMonth} ${yearMonths} ${year} <br />`;
 }
 
