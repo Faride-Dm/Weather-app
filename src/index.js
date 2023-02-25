@@ -191,6 +191,7 @@ function convertToCelsius(event) {
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  getForecast(coordinates, "metric");
 }
 
 let now = new Date();
