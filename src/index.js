@@ -198,8 +198,8 @@ let now = new Date();
 let dayOfTheWeek = document.querySelector("#date");
 dayOfTheWeek.innerHTML = formatDate(now);
 
-let searchCity = document.querySelector("#input-city");
-searchCity.addEventListener("submit", chooseCity);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", chooseCity);
 
 celsiusTemperature = null;
 
